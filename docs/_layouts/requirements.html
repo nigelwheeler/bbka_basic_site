@@ -25,12 +25,13 @@ layout: default
 
     <h2>Relevant Posts</h2>
     <div>
-    {% assign currentPosts = site.posts | where: "tags",page.tags %}
+      {% assign posts = site.posts | where: "tags", page.item %}    
     <ul>
-    {% for post in currentPosts %}
-        <li>
+    {% for post in posts %}
+        <li>        
           <a href="{{ post.url }}">{{ post.title }}</a>
         </li>
+
     {% endfor %}
     </ul>
     </div>
