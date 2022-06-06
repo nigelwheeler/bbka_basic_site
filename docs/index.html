@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<ul>
+    {% for requirement in site.data.requirements %}
+      <li>
+        <a href="{{ site.url }}/requirements/{{ requirement.Identifier | replace:'.','_' }}.html">
+          {{ requirement.Identifier }} {{ requirement.Requirement }}
+        </a>
+      </li>
+    {% endfor %}
+</ul>
