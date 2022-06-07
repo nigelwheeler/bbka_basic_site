@@ -13,7 +13,7 @@ layout: default
 
     <h2>Bullet Points</h2>
     <div>
-    {% assign currentItems = site.data.bulletpoints | where: "Item",page.item %}
+    {% assign currentItems = site.data.bulletpoints | where: "Item",page.identifier %}
     <ul>
     {% for item in currentItems %}
         <li>
@@ -25,7 +25,7 @@ layout: default
 
     <h2>Relevant Posts</h2>
     <div>
-      {% assign posts = site.posts | where: "tags", page.item %}    
+      {% assign posts = site.posts | where: "tags", page.identifier %}    
     <ul>
     {% for post in posts %}
         <li>        
@@ -34,6 +34,12 @@ layout: default
 
     {% endfor %}
     </ul>
+    </div>
+
+    <div>
+      {%- if page.previous_identifier -%}
+      <a href="{{site.url}}/requirements/{{page.previous_identifier | replace: '.', '_'}}.html">Previous</a>
+      {%- endif -%}
     </div>
     
 
